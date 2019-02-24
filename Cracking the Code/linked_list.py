@@ -147,7 +147,40 @@ def reverse_list(head, start, end):
     return dummy_head.next
 
 
-# def is_cyclic(head):
+def is_cyclic(head):
+    # We will use runner approach: the slow goes one by one, the fast goes two at once.
+    # Why 2? Probably 2 is the minimum size to have a cycle
+
+    slow = fast = head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            # Find cycle length
+            slow = slow.next
+            cycle_len = 1
+            while slow != fast:
+                cycle_len += 1
+                slow = slow.next
+            
+            # Find cycle start
+            iter_head = head
+            runner = head
+            
+            # Fast forward runner by cycle_len
+            for _ in range(cycle_len):
+                runner = runner.next
+            
+            # iter and runner go at same pace
+            # after (size - cycle_len): runner loops to the start of the cycle, meets iter.
+            while iter_head != runner:
+                iter_head = iter_head.next
+                runner = runner.next
+            return(iter_head, cycle_len)
+
+    return(None, None)
     
 
 
@@ -179,10 +212,17 @@ if __name__ == '__main__':
     #     LL1_reversed = LL1_reversed.next
 
     # TEST merge_k
-    LL = merge_k([LL1.head, LL2.head])
-    while LL:
-        print(LL.data, end=' ')
-        LL = LL.next
+    # LL = merge_k([LL1.head, LL2.head])
+    # while LL:
+    #     print(LL.data, end=' ')
+    #     LL = LL.next
+    
+    # TEST cyclic
+    tail = Node(10)
+    LL1.append(tail)
+    tail.next = LL1.head.next.next
+    cycle_start, cycle_len = is_cyclic(LL1.head)
+    print(cycle_start.data, cycle_len)
     
 
     
