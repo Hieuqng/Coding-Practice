@@ -1,6 +1,2 @@
-
-    TEST merge_k
-    LL = merge_k([LL1.head, LL2.head])
-    while LL:
-        print(LL.data, end=' ')
-        LL = LL.next
+if not root.left and not root.right:
+    #     ret

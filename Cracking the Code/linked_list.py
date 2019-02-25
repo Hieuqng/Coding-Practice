@@ -183,6 +183,33 @@ def is_cyclic(head):
     return(None, None)
     
 
+def is_overlap(head1, head2):
+    len1 = list_len(head1)
+    len2 = list_len(head2)
+
+    if len1 >= len2:
+        for _ in range(len1-len2):
+            head1 = head1.next
+    else:
+        for _ in range(len2-len1):
+            head2 = head2.next
+    
+    while head1 and head2 and head1 != head2:
+        head1 = head1.next
+        head2 = head2.next
+    
+    return head1
+
+
+def list_len(head):
+    curr = head
+    count = 0
+    while curr:
+        count += 1
+        curr = curr.next
+    return count
+
+
 
 if __name__ == '__main__':
     LL1 = LinkedList()
@@ -218,11 +245,20 @@ if __name__ == '__main__':
     #     LL = LL.next
     
     # TEST cyclic
-    tail = Node(10)
-    LL1.append(tail)
-    tail.next = LL1.head.next.next
-    cycle_start, cycle_len = is_cyclic(LL1.head)
-    print(cycle_start.data, cycle_len)
+    # tail = Node(10)
+    # LL1.append(tail)
+    # tail.next = LL1.head.next.next
+    # cycle_start, cycle_len = is_cyclic(LL1.head)
+    # print(cycle_start.data, cycle_len)
+
+    # TEST is_overlap
+    head3 = Node()
+    head3.next = Node(1)
+    head3.next.next = Node(2)
+    head3.next.next.next = LL1.head.next.next
+    overlap = is_overlap(head3, LL1.head)
+    if overlap:
+        print(overlap.data)
     
 
     
