@@ -50,7 +50,7 @@ def find_leaves(node):
 
 # WARNING!!! We should avoid this practice on large or unknown trees 
 # because of the possibility of a call stack overflow.
-def find_leaves(node):
+def bad_find_leaves(node):
     if not node.left and not node.right:
         return [node.path()]
     leaves = []
