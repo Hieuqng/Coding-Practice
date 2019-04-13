@@ -92,17 +92,17 @@ def is_bst(root):
 ###########
 ## DEBUG ##
 ###########
-# def height(root):
-#     if not root:
-#         return 0
+def height(root):
+    if not root:
+        return 0
 
-#     left =  height(root.left)
-#     right = height(root.right)
+    left =  height(root.left)
+    right = height(root.right)
 
-#     if left < right:
-#         return right + 1
-#     else:
-#         return left + 1
+    if left < right:
+        return right + 1
+    else:
+        return left + 1
 
 
 # def print_tree(root):
@@ -152,3 +152,6 @@ if __name__ == "__main__":
     c.right = g
 
     print(is_binary(root))
+
+
+

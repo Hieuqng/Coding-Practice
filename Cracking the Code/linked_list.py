@@ -60,35 +60,35 @@ def merge(list1, list2):
     return dummy_head.next
 
 
-# def merge_k(lists):
-#     # lists contains the heads of every individual lists. 
-#     dummy_head = Node()
-#     tail = dummy_head
+def merge_k_long(lists):
+    # lists contains the heads of every individual lists. 
+    dummy_head = Node()
+    tail = dummy_head
     
-#     while len(lists) > 1: #O(k*n) with k = len(lists)
-#         value = [l.data for l in lists]
+    while len(lists) > 1: #O(k*n) with k = len(lists)
+        value = [l.data for l in lists]
 
-#         # Find minimum among the heads: O(n)
-#         minimum = value[0]
-#         ind = 0
-#         for i, v in enumerate(value):
-#             if v <= minimum: 
-#                 minimum = v
-#                 ind = i
+        # Find minimum among the heads: O(n)
+        minimum = value[0]
+        ind = 0
+        for i, v in enumerate(value):
+            if v <= minimum: 
+                minimum = v
+                ind = i
 
-#         tail.next = lists[ind] # Attach the next min value to the tail
-#         tail = tail.next # Update the tail
+        tail.next = lists[ind] # Attach the next min value to the tail
+        tail = tail.next # Update the tail
 
-#         # If one list comes to an end, that means we use up all of its elements
-#         # remove it from the lists: O(n)
-#         if lists[ind].next == None:
-#             lists.remove(lists[ind])
-#         else:
-#             lists[ind] = lists[ind].next
+        # If one list comes to an end, that means we use up all of its elements
+        # remove it from the lists: O(n)
+        if lists[ind].next == None:
+            lists.remove(lists[ind])
+        else:
+            lists[ind] = lists[ind].next
     
-#     tail.next = lists[0]
+    tail.next = lists[0]
 
-#     return dummy_head.next
+    return dummy_head.next
 
 
 def merge_k(lists):
