@@ -64,9 +64,6 @@ if __name__ == "__main__":
     vals = []
     print_tree(a, vals, 1)
     vals = sorted(vals, key=lambda x: x[1])
-    max_level = vals[-1][1]
-    curr_level = 1
-    pos = 1
     print(vals)
         
 

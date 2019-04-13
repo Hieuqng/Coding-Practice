@@ -30,7 +30,7 @@ def tower_of_hn(n, a='1', b='2', c='3'):
     if n == 0:
         return
     if n == 1:
-        print("Move {} to {}".format(a,c))
+        print("Move {} to {}".format(a, c))
         return
     else:
         tower_of_hn(n-1, a, c, b)
