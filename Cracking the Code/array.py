@@ -50,7 +50,8 @@ def dutch_flag_partition(A, p):
             A[equal], A[larger] = A[larger], A[equal]
     return A
 
-dutch_flag_partition(a, 2)
+# a = [1,4,5,5,3,1,0,9,10,22,1]
+# print(dutch_flag_partition(a, 2))
 
 """### 2. Multiply arrays
 Given 2 arrays, multiply the numbers formed by them and give the result in array-form. For example: [1,2,3] * [9,8,7] = [1,2,1,4,0,1]
@@ -70,14 +71,14 @@ def multiply(A1, A2):
     result = result[next((i for i,x in enumerate(result) if x != 0), len(result)):]
     return [result[0]*sign] + result[1:]
 
-multiply([1,2,3], [9,8,7])
+# print(multiply([1,2,3], [9,8,7]))
 
 """### Palindrome Permutation
 
 Check if a string is a permutation of a palindrome. For example: "Tact Coa" is PP because valid permutations are "taco cat", "atco cta"
 """
 def is_palindrome_permutation(s):
-    s = s.replace(' ', '')
+    s = s.replace(' ', '').lower()
     track = set()
     for i in s:
         if i in track:
@@ -89,5 +90,5 @@ def is_palindrome_permutation(s):
         return 1
     return 0
 
-is_palindrome_permutation('tacoo0o c011at')
+# print(is_palindrome_permutation('tacoo0o c011at'))
 
